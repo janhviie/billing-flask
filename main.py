@@ -8,7 +8,6 @@ import sqlalchemy.exc
 from datetime import date
 from datetime import datetime
 from sqlalchemy.sql import text
-from sqlalchemy.sql import text
 from flask import Flask, render_template,url_for,request,redirect , session,flash, make_response;
 import sys;
 from flask_sqlalchemy import SQLAlchemy
@@ -39,9 +38,7 @@ class bill_info(db.Model):
     billing_address = db.Column(db.String(200), nullable=False)
     mobile_no = db.Column(db.Integer, nullable=False)
 
-    # item_code = db.Column(db.Integer, nullable=False)
-    # quantity = db.Column(db.Integer, nullable=False)
-    # discount = db.Column(db.Integer, nullable=False)
+
 
 class items_brought_info(db.Model):
     itemname = db.Column(db.String(100), nullable=False,primary_key=True)
@@ -142,52 +139,10 @@ def billing():
     now = datetime.now()
     dt_string = now.strftime('%Y-%m-%d %I:%M:%S %p')
     print("date and time =", dt_string)
-    billdate = dt_string
+
 
     billno = countofrows + 1
     session["billno"] = countofrows + 1
-
-    # if request.method == "POST":
-    #     # billno = request.form.get("billno")
-    #     # billdate = request.form.get("billdate")
-    #     customername = request.form.get("customername")
-    #     billingaddress = request.form.get("billingaddress")
-    #     mobileno = request.form.get("mobileno")
-    #
-    #     countofrows=0;
-    #     count = db.session.execute("select * from bill_info")
-    #     countlist = count.fetchall()
-    #     for n in countlist:
-    #         countofrows+=1;
-    #
-    #     # get date and time
-    #     now = datetime.now()
-    #     dt_string = now.strftime('%Y-%m-%d %I:%M:%S %p')
-    #     print("date and time =", dt_string)
-    #     billdate = dt_string
-    #
-    #     billno = countofrows+1
-    #     session["billno"] = countofrows+1
-    #     session["billdate"] = billdate
-    #     session["customername"] = customername
-    #     session["billingaddress"] = billingaddress
-    #     session["mobileno"] = mobileno
-    #
-    #     print(request.form.get("mobileno"))
-    #
-    #
-    #     basicInfoentry = bill_info(bill_no=billno, bill_date=billdate, customer_name=customername,
-    #                                billing_address=billingaddress, mobile_no=request.form.get("mobileno")
-    #
-    #                                )
-    #     try:
-    #         db.session.add(basicInfoentry)
-    #         db.session.commit()
-    #         print("SUCCESSFUl")
-    #     except sqlalchemy.exc.IntegrityError:
-    #         print("ERROR")
-    #         flash("Error generating bill")
-    #         return (sqlalchemy.exc.IntegrityError)
 
     return render_template("bill_form.html")
 
@@ -231,23 +186,13 @@ def broughtItem():
                 {'val': itemcode})
             resultlistitems = resultlist.fetchall()
 
-            # if resultlistitems:
-            #
-            #     for i in resultlistitems:
-            #         unitprice = int(i.price)
-            #         name = i.item_name
-            #
-            # else:
-            #     flash("No Such Item exists")
-            #     return redirect(url_for('broughtItem'))
 
 
 
 
 
             if request.form.get('action') == "Next":
-                # billno = request.form.get("billno")
-                # billdate = request.form.get("billdate")
+
                 customername = request.form.get("customername")
                 billingaddress = request.form.get("billingaddress")
                 mobileno = request.form.get("mobileno")
@@ -676,9 +621,6 @@ def delete():
         "delete from generated_bill_info where itemcode = :val and quantity = :val2 and bill_no=:val3 ",
         {'val': itemcode , 'val2' : quantity, 'val3': session['bno'] })
 
-    # rlist = db.session.execute(
-    #     "delete from items_brought_info where itemcode = :val and quantity = :val2 and discount = :disc and tax = :tax",
-    #     {'val': itemcode , 'val2' : quantity, 'disc': session["disc"], 'tax': session["tax"] })
     db.session.commit()
     return redirect(url_for('broughtItem'))
 

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Example 1</title>
+    <link rel="stylesheet" href="../static/invoicestyle.css" media="all" />
+  </head>
+  <body>
+    <header class="clearfix">
+        <div id="logo">
+         
+          <img src="../static/logo.jpeg">
+        </div>
+        <h1>INVOICE</h1>
+        <div id="company" class="clearfix">
+          <div>Aarambh Interior Ply-lam</div>
+          <div>Aathvali bazar chowk,
+   Morshi,<br /> Shop No. 1-2</div>
+          <div>8805282601</div>
+          <div><a href="amolkeche143@gmail.com">amolkeche143@gmail.com</a></div>
+        </div>
+        <div id="project">
+          <div><span>INVOICE NO: </span> {{ billno }}</div>
+          <div><span>CUSTOMER NAME: </span>{{ name }}</div>
+          <div><span>MOBILE NO: </span> {{ phoneNo }}</div>
+          <div><span>ADDRESS: </span> {{ address }}</div>
+      
+          <div><span>DATE: </span> {{ billdate }} </div>
+          
+        </div>
+      </header>
+    <main>
+      <table>
+        <thead>
+          <tr>
+            <th>S. No</th>
+							<th>Item</th>
+							<th>Qty</th>
+							<th>Rate</th>
+							
+							<th>Tax(%)</th>
+							<th>Total Amount</th>
+          </tr>
+        </thead>
+        <hr>
+        
+        <tbody>
+          
+          <!-- <tr>
+            <td class="service">Design</td>
+            <td class="desc">Creating a recognizable design solution based on the company's existing visual identity</td>
+            <td class="unit">$40.00</td>
+            <td class="qty">26</td>
+            <td class="total">$1,040.00</td>
+          </tr> -->
+         
+
+         
+          <!-- new -->
+          {% for i in result %}
+          <tr>
+            <td >{{ loop.index }}</td>
+            <td >
+              {{ i.itemname }}
+            </td>
+            <td >
+              {{ i.quantity }}
+            </td>
+            <td >
+              {{ i.unitprice }}
+            </td>
+
+           
+
+            <td >
+              {{ i.tax }}
+            </td>
+
+            <td>{{ i.totalprice }}</td>
+          </tr>
+          {% endfor %}
+
+          <!-- end -->
+        </tbody>
+      </table>
+      <div id="notices">
+        <div>Total Amount in Rupees:</div>
+        <div class="notice">{{ total }} Rupees</div>
+      </div>
+
+      <hr>
+      <div id="notices">
+        <p>Terms and Conditions</p>
+        <ul class="ml-4">
+          <li>Material should not be refundable </li>
+          <li>Material are replaceable</li>
+          <li>Transportation charges will be paid by the customer</li>
+        </ul>
+      </div>
+        <form method="POST" action="{{ url_for('invoice') }}" target="_blank">
+
+				<input type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" value="Create PDF">
+				<a class="button button1" id="back" onclick="clear()" href="{{url_for('mainpage')}}">Back To Homepage</a>
+			</form>
+    </main>
+    <footer>
+      Invoice was created on a computer and is valid without the signature and seal.
+    </footer>
+  </body>
+</html>

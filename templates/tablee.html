@@ -1,0 +1,82 @@
+
+<table>
+        <caption>Bill Summary</caption>
+
+<thead>
+          <tr>
+            <th scope="col">SNO</th>
+            <th scope="col">MODEL NO.</th>
+            <th scope="col">PRODUCT NAME</th>
+            <th scope="col">QUANTITY</th>
+            <th scope="col">UNIT PRICE</th>
+            <th scope="col">TOTAL PRICE</th>
+
+          </tr>
+        </thead>
+        <tbody>
+         {% for item in Finallist %}
+          <tr>
+
+            <td class="lalign">{{ loop.index }}</td>
+                            <td>{{ item.itemcode }}</td>
+                            <td>{{ item.itemname }}</td>
+                            <td>{{ item.quantity }}</td>
+                            <td>{{ item.unitprice }}</td>
+
+                            <td>{{ item.totalprice }}</td>
+
+                            <td> <a href="{{ url_for('delete', itemcode = item.itemcode , qt = item.quantity) }}">delete</a></td>
+
+
+
+
+          </tr>
+         {% endfor %}
+        </tbody>
+      </table>
+
+
+
+
+
+
+
+
+
+
+<table>
+        <caption>Bill Summary</caption>
+         </div>
+                 <a class="button button1" href="{{url_for('mainpage')}}">Back To Homepage</a>
+              </div>
+        <thead>
+          <tr>
+            <th scope="col">Bill Number</th>
+            <th scope="col">Bill Date</th>
+            <th scope="col">Customer Name</th>
+            <th scope="col">Billing Address</th>
+            <th scope="col">Mobile Number</th>
+            <th scope="col">Item Purchased</th>
+            <th scope="col">Item Code</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Total Price</th>
+          </tr>
+        </thead>
+        <tbody>
+         {% for i in result %}
+          <tr>
+
+            <td data-label="Bill Number">{{ i.bill_no }}</td>
+            <td data-label="Due Date">{{ i.bill_date }}</td>
+            <td data-label="Amount">{{ i.customer_name }}</td>
+            <td data-label="Period">{{ i.billing_address }}</td>
+                <td data-label="Period">{{ i.mobile_no }}</td>
+                <td data-label="Period">{{ i.itemname }}</td>
+                <td data-label="Period">{{ i.itemcode }}</td>
+              <td data-label="Period">{{ i.quantity }}</td>
+                <td data-label="Period">{{ i.totalprice }}</td>
+
+          </tr>
+         {% endfor %}
+        </tbody>
+      </table>

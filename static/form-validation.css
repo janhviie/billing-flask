@@ -1,0 +1,367 @@
+le.cssCSS
+/* code by webdevtrick ( https://webdevtrick.com ) */
+body {
+	margin-top: 15%;
+  background: #333;
+  font-family: Arial;
+	padding: 20px;
+}
+
+*{
+	box-sizing: border-box;
+}
+
+form{
+	max-width: 450px;
+	margin: 0 auto;
+}
+
+form > div{
+	margin-top: 5px;
+	position: relative;
+	background: white;
+	border-bottom: 1px solid #ccc;
+}
+
+form > div > label{
+	opacity: 0.3;
+	font-weight: bold;
+	position: absolute;
+	top: 20px;
+	left: 60px;
+}
+
+form > div > input[type="text"],
+form > div > input[type="email"],
+form > div > input[type="password"],
+form > div > input[type="tel"]{
+	width: 100%;
+	border: 0;
+	padding: 20px 20px 20px 60px;
+	background: #F0ECEC;
+}
+
+form > div > input[type="text"]:focus,
+form > div > input[type="email"]:focus,
+form > div > input[type="password"]:focus,
+form > div > input[type="tel"]:focus{
+	outline: 0;
+	background: white;
+}
+
+form > div > input[type="text"]:focus + label,
+form > div > input[type="email"]:focus + label,
+form > div > input[type="password"]:focus + label,
+form > div > input[type="tel"]:focus + label{
+	opacity: 0;
+}
+
+form > div > input[type="text"]:valid,
+form > div > input[type="email"]:valid,
+form > div > input[type="password"]:valid,
+form > div > input[type="tel"]:valid{
+	background: url('https://webdevtrick.com/wp-content/uploads/check-icon.svg');
+	background-size: 20px;
+	background-repeat: no-repeat;
+	background-position: 415px 18px;
+}
+
+form > div > input[type="text"]:valid + label,
+form > div > input[type="email"]:valid + label,
+form > div > input[type="password"]:valid + label,
+form > div > input[type="tel"]:valid + label{
+	opacity: 0;
+}
+
+form > div > input[type="text"]:invalid:not(:focus):not(:placeholder-shown),
+form > div > input[type="email"]:invalid:not(:focus):not(:placeholder-shown),
+form > div > input[type="password"]:invalid:not(:focus):not(:placeholder-shown),
+form > div > input[type="tel"]:invalid:not(:focus):not(:placeholder-shown){
+	background: url('https://webdevtrick.com/wp-content/uploads/xicon.svg');
+	background-size: 20px;
+	background-repeat: no-repeat;
+	background-position: 415px 18px;
+}
+
+form > div > input[type="text"]:invalid:not(:focus):not(:placeholder-shown) + label,
+form > div > input[type="email"]:invalid:not(:focus):not(:placeholder-shown) + label,
+form > div > input[type="password"]:invalid:not(:focus):not(:placeholder-shown) + label,
+form > div > input[type="tel"]:invalid:not(:focus):not(:placeholder-shown) + label{
+	opacity: 0;
+}
+
+form > div > input[type="text"]:invalid:not(:focus):not(:placeholder-shown) ~ .requirements,
+form > div > input[type="email"]:invalid:not(:focus):not(:placeholder-shown) ~ .requirements,
+form > div > input[type="password"]:invalid:not(:focus):not(:placeholder-shown) ~ .requirements,
+form > div > input[type="tel"]:invalid:not(:focus):not(:placeholder-shown) ~ .requirements{
+	margin-top: 5px;
+	max-height: 200px;
+	padding: 5px 30px 5px 50px;
+	border-top: 1px dashed #aaa;
+	background-color: whitesmoke;
+}
+
+form > div .requirements {
+	padding: 0 30px 0 50px;
+	color: #C73030;
+	max-height: 0;
+	transition: 0.28s;
+	overflow: hidden;
+	font-style: italic;
+	font-size: 0.8em;
+}
+
+form input[type="submit"]{
+	display: block;
+	width: 100%;
+	margin: 20px 0;
+	background: #41D873;
+	color: white;
+	border: 0;
+	padding: 20px;
+	font-size: 1.2rem;
+}
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+/* code by webdevtrick ( https://webdevtrick.com ) */
+body {
+ margin-top: 15%;
+  background: #333;
+  font-family: Arial;
+ padding: 20px;
+}
+
+*{
+ box-sizing: border-box;
+}
+
+form{
+ max-width: 450px;
+ margin: 0 auto;
+}
+
+form > div{
+ margin-top: 5px;
+ position: relative;
+ background: white;
+ border-bottom: 1px solid #ccc;
+}
+
+form > div > label{
+ opacity: 0.3;
+ font-weight: bold;
+ position: absolute;
+ top: 20px;
+ left: 60px;
+}
+
+form > div > input[type="text"],
+form > div > input[type="email"],
+form > div > input[type="password"],
+form > div > input[type="tel"]{
+ width: 100%;
+ border: 0;
+ padding: 20px 20px 20px 60px;
+ background: #F0ECEC;
+}
+
+form > div > input[type="text"]:focus,
+form > div > input[type="email"]:focus,
+form > div > input[type="password"]:focus,
+form > div > input[type="tel"]:focus{
+ outline: 0;
+ background: white;
+}
+
+form > div > input[type="text"]:focus + label,
+form > div > input[type="email"]:focus + label,
+form > div > input[type="password"]:focus + label,
+form > div > input[type="tel"]:focus + label{
+ opacity: 0;
+}
+
+form > div > input[type="text"]:valid,
+form > div > input[type="email"]:valid,
+form > div > input[type="password"]:valid,
+form > div > input[type="tel"]:valid{
+ background: url('https://webdevtrick.com/wp-content/uploads/check-icon.svg');
+ background-size: 20px;
+ background-repeat: no-repeat;
+ background-position: 415px 18px;
+}
+
+form > div > input[type="text"]:valid + label,
+form > div > input[type="email"]:valid + label,
+form > div > input[type="password"]:valid + label,
+form > div > input[type="tel"]:valid + label{
+ opacity: 0;
+}
+
+form > div > input[type="text"]:invalid:not(:focus):not(:placeholder-shown),
+form > div > input[type="email"]:invalid:not(:focus):not(:placeholder-shown),
+form > div > input[type="password"]:invalid:not(:focus):not(:placeholder-shown),
+form > div > input[type="tel"]:invalid:not(:focus):not(:placeholder-shown){
+ background: url('https://webdevtrick.com/wp-content/uploads/xicon.svg');
+ background-size: 20px;
+ background-repeat: no-repeat;
+ background-position: 415px 18px;
+}
+
+form > div > input[type="text"]:invalid:not(:focus):not(:placeholder-shown) + label,
+form > div > input[type="email"]:invalid:not(:focus):not(:placeholder-shown) + label,
+form > div > input[type="password"]:invalid:not(:focus):not(:placeholder-shown) + label,
+form > div > input[type="tel"]:invalid:not(:focus):not(:placeholder-shown) + label{
+ opacity: 0;
+}
+
+form > div > input[type="text"]:invalid:not(:focus):not(:placeholder-shown) ~ .requirements,
+form > div > input[type="email"]:invalid:not(:focus):not(:placeholder-shown) ~ .requirements,
+form > div > input[type="password"]:invalid:not(:focus):not(:placeholder-shown) ~ .requirements,
+form > div > input[type="tel"]:invalid:not(:focus):not(:placeholder-shown) ~ .requirements{
+ margin-top: 5px;
+ max-height: 200px;
+ padding: 5px 30px 5px 50px;
+ border-top: 1px dashed #aaa;
+ background-color: whitesmoke;
+}
+
+form > div .requirements {
+ padding: 0 30px 0 50px;
+ color: #C73030;
+ max-height: 0;
+ transition: 0.28s;
+ overflow: hidden;
+ font-style: italic;
+ font-size: 0.8em;
+}
+
+form input[type="submit"]{
+ display: block;
+ width: 100%;
+ margin: 20px 0;
+ background: #41D873;
+ color: white;
+ border: 0;
+ padding: 20px;
+ font-size: 1.2rem;
+}

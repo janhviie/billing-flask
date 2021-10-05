@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Old Bills</title>
+</head>
+<style> 
+table {
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  table-layout: fixed;
+}
+
+table caption {
+  font-size: 1.5em;
+  margin: .5em 0 .75em;
+}
+
+table tr {
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  padding: .35em;
+}
+
+table th,
+table td {
+  padding: .625em;
+  text-align: center;
+}
+
+table th {
+  font-size: .85em;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 600px) {
+  table {
+    border: 0;
+  }
+
+  table caption {
+    font-size: 1.3em;
+  }
+  
+  table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+  
+  table tr {
+    border-bottom: 3px solid #ddd;
+    display: block;
+    margin-bottom: .625em;
+  }
+  
+  table td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: .8em;
+    text-align: right;
+  }
+  
+  table td::before {
+    /*
+    * aria-label has no advantage, it won't be read inside a table
+    content: attr(aria-label);
+    */
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  table td:last-child {
+    border-bottom: 0;
+  }
+}
+
+
+
+/* general styling */
+body {
+  font-family: "Open Sans", sans-serif;
+  line-height: 1.25;
+}
+</style>
+<body>
+    <table>
+        <caption>Bill Summary</caption>
+         </div>
+                 <a class="button button1" href="{{url_for('mainpage')}}">Back To Homepage</a>
+              </div>
+        <thead>
+          <tr>
+            <th scope="col">Bill Number</th>
+            <th scope="col">Bill Date</th>
+            <th scope="col">Customer Name</th>
+            <th scope="col">Billing Address</th>
+            <th scope="col">Mobile Number</th>
+            <th scope="col">Item Purchased</th>
+            <th scope="col">Item Code</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Product Price</th>
+          </tr>
+        </thead>
+        <tbody>
+         {% for i in result %}
+          <tr>
+
+            <td data-label="Bill Number">{{ i.bill_no }}</td>
+            <td data-label="Due Date">{{ i.bill_date }}</td>
+            <td data-label="Amount">{{ i.customer_name }}</td>
+            <td data-label="Period">{{ i.billing_address }}</td>
+                <td data-label="Period">{{ i.mobile_no }}</td>
+                <td data-label="Period">{{ i.itemname }}</td>
+                <td data-label="Period">{{ i.itemcode }}</td>
+              <td data-label="Period">{{ i.quantity }}</td>
+                <td data-label="Period">{{ i.totalprice }}</td>
+
+          </tr>
+         {% endfor %}
+        </tbody>
+      </table>
+</body>
+</html>

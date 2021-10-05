@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../static/table.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+  <title>Document</title>
+</head>
+<style>
+
+.button {
+  background-color: #b8f4ff; /* Green */
+  border: none;
+  color: rgb(12, 12, 12);
+  padding: 18px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+
+.button1 {border-radius: 8px;}
+.card-registration .select-input.form-control[readonly]:not([disabled]) {
+  font-size: 1rem;
+  line-height: 2.15;
+  padding-left: .75em;
+  padding-right: .75em;
+}
+.card-registration .select-arrow {
+  top: 13px;
+}
+
+#materialid{
+  margin-bottom: 1.5rem!important;
+  margin-top: 1.5rem!important;
+}
+
+
+
+  #divalign{
+    float: right;
+    align-items: center;
+   
+  }
+
+  .alert-error {
+        padding: 8px;
+        background-color: red;
+        color: white;
+
+      }
+
+      table {
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  table-layout: fixed;
+}
+
+table caption {
+  font-size: 1.5em;
+  margin: .5em 0 .75em;
+}
+
+
+table th,
+table td {
+  padding: .625em;
+  text-align: center;
+}
+
+table th {
+  font-size: 1em;
+  font-weight: bold;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 600px) {
+  table {
+    border: 0;
+  }
+
+  table caption {
+    font-size: 1.3em;
+  }
+
+  table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+
+  table tr {
+    background-color: blue;
+    border-bottom: 3px solid #ddd;
+    display: block;
+    margin-bottom: .625em;
+  }
+
+  table td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: 2em;
+    text-align: right;
+  }
+
+  table td::before {
+    /*
+    * aria-label has no advantage, it won't be read inside a table
+    content: attr(aria-label);
+    */
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  table td:last-child {
+    border-bottom: 0;
+  }
+}
+
+
+
+</style>
+<body>
+  
+  <section class="h-100 bg-dark">
+
+    <form method="POST" action="">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col">
+        <div class="card card-registration my-4">
+          <div class="row g-0">
+
+            {% with messages = get_flashed_messages() %}
+   {% if messages %}
+      {% for message in messages %}
+         <div class="alert-error">{{ message }}</div>
+      {% endfor %}
+   {% endif %}
+{% endwith %}
+
+           
+            <div class="col-xl-12">
+                <div class="card-body p-md-5 text-black">
+
+
+                  <h3 class="mb-5 text-uppercase">Add Items Brought By Customer</h3>
+
+                 
+                  <div class="row">
+                    <div class="col-md-2 mb-5">
+                      <div class="form-outline">
+                        <input type="text" name="itemname" id="form3Example1m" class="form-control form-control-lg" required>
+                        <label class="form-label" for="form3Example1m">Model Name</label>
+                      </div>
+                    </div>
+                    <div class="col-md-2 mb-5">
+                      <div class="form-outline">
+                        <input type="number" name="quantity" id="form3Example1n" class="form-control form-control-lg" required>
+                        <label class="form-label" for="form3Example1n">Quantity</label>
+                      </div>
+                    </div>
+                  <div class="col-md-2 mb-5">
+                      <div class="form-outline">
+                        <input type="number" name="discount" id="form3Example1m1" class="form-control form-control-lg" required>
+                        <label class="form-label" for="form3Example1m1">Discount(%)</label>
+                      </div>
+                    </div>
+
+                     <div class="col-md-2 mb-5">
+                      <div class="form-outline">
+                        <input type="number" name="tax" id="form3Example1m2" class="form-control form-control-lg" required>
+                        <label class="form-label" for="form3Example1m1">Tax(%)</label>
+                      </div>
+                    </div>
+
+                    <div class="col-md-2 mb-5">
+                      <div class="form-outline">
+                        <input type="submit" class="form-control form-control-lg btn-light border border-3 border-dark" name="action" value="ADD">
+                        
+                      </div>
+                    </div>
+                    </div>
+                  
+                  </div>
+                  </div>
+                  </div>
+                    <div id="wrapper">
+     
+
+                      <table>
+                        <thead>
+                          <tr bgcolor="lightblue">
+                            <th><span>SNO</span></th>
+                            <th><span>MODEL NO.</span></th>
+                            <th><span>PRODUCT NAME</span></th>
+                            <th><span>QUANTITY</span></th>
+                            <th><span>UNIT PRICE</span></th>
+                            <th><span>DISCOUNT %</span></th>
+                            <th><span>TAX %</span></th>
+                            <th><span>TOTAL PRICE</span></th>
+                            <th><span></span></th>
+
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {% for item in Finallist %}
+                          <tr>
+                            <td class="lalign">{{ loop.index }}</td>
+                            <td>{{ item.itemcode }}</td>
+                            <td>{{ item.itemname }}</td>
+                            <td>{{ item.quantity }}</td>
+                            <td>{{ item.unitprice }}</td>
+                             <td>{{ item.discount }}</td>
+                             <td>{{ item.tax }}</td>
+
+                            <td>{{ item.totalprice }}</td>
+
+                            <td> <a href="{{ url_for('delete', itemcode = item.itemcode , qt = item.quantity) }}">delete</a></td>
+
+                          </tr>
+
+                          </tr>
+                          {% endfor %}
+                        </tbody>
+                      </table>
+
+                     
+                      <div class="row" id="divalign"> 
+                        <h4 class="col-md-8 mb-4 text-center">{{ sum }}</h4>
+                        <div class="col-md-8 mb-4 ">
+                          <div class="form-outline">
+                            <input type="submit" class="form-control form-control-lg btn-dark float-right" formnovalidate name="action" value="Calculate Total">
+                            
+                          </div>
+                        </div>
+  
+                        <div class="col-md-8 mb-4 ">
+                          <div class="form-outline">
+                            <input type="submit" formaction="{{ url_for('generatebill') }}" class="form-control form-control-lg btn-dark float-right" formnovalidate name="action" value="Generate Bill">
+                            
+                          </div>
+                        </div>
+
+                      </div>
+                      
+                      </div>
+                      
+                      </div>
+                      <a class="button button1" href="{{url_for('home')}}">Back To Homepage</a>
+                      </div>
+                      </div>
+                      </div>
+                      </form>
+
+                      
+
+                     </div> 
+
+                    <script>
+                        $(function(){
+                   $('#keywords').tablesorter(); 
+                 });
+                    </script>
+
+                  
+                  </div>
+
+                  <div class="row">
+
+
+
+                  </div>
+                </div>
+
+
+                  </div>
+
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+</body>
+</html>

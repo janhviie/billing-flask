@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+  <title>Document</title>
+</head>
+<style>
+.button {
+  background-color: #b8f4ff; /* Green */
+  border: none;
+  color: rgb(12, 12, 12);
+  padding: 18px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+
+.button1 {border-radius: 8px;}
+.card-registration .select-input.form-control[readonly]:not([disabled]) {
+  font-size: 1rem;
+  line-height: 2.15;
+  padding-left: .75em;
+  padding-right: .75em;
+}
+.card-registration .select-arrow {
+  top: 13px;
+}
+
+#materialid{
+  margin-bottom: 1.5rem!important;
+  margin-top: 1.5rem!important;
+}
+
+</style>
+<body>
+  <form method="post" action="{{ url_for('broughtItem') }}" enctype="multipart/form-data">
+  <section class="h-100 bg-dark">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col">
+        <div class="card card-registration my-4">
+          <div class="row g-0">
+            <div class="col-xl-6 d-none d-xl-block">
+              <img
+                src="../static/imgbg.jpg"
+                alt="Sample photo"
+                class="img-fluid"
+                style="border-top-left-radius: .25rem; border-bottom-left-radius: .25rem;"
+              />
+            </div>
+            
+            <div class="col-xl-6">
+              <div class="card-body p-md-5 text-black">
+                <h3 class="mb-5 text-uppercase">Billing Information Form</h3>
+
+<!--                <div class="row">-->
+<!--                  <div class="col-md-5 mb-2">-->
+<!--                    <div class="form-outline">-->
+<!--                      <input type="text" id="form3Example1m" name="billno" class="form-control form-control-lg" required>-->
+<!--                      <label class="form-label" for="form3Example1m">Bill No</label>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                  <div class="col-md-5 mb-2">-->
+<!--                    <div class="form-outline">-->
+<!--                      <input type="date" id="form3Example1n" name="billdate" class="form-control form-control-lg" required>-->
+<!--                      <label class="form-label" for="form3Example1n">Bill Date</label>-->
+<!--                    </div>-->
+<!--                  </div>-->
+                  
+<!--                </div>-->
+
+                <div class="row">
+                  <div class="col-md-6 mb-4">
+                    <div class="form-outline">
+                      <input type="text" id="cusname" name="customername" class="form-control form-control-lg" required>
+                      <label class="form-label" for="cusname">Customer Name</label>
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-4">
+                    <div class="form-outline">
+                      <input type="text" id="addr" name="billingaddress" class="form-control form-control-lg" required>
+                      <label class="form-label" for="addr">Billing Address</label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <input type="tel" id="number" name="mobileno" class="form-control form-control-lg" required>
+                  <label class="form-label" for="number">Mobile Number</label>
+                </div>
+
+
+                 <div class="row">
+
+
+                </div>
+
+                  <div class="d-flex justify-content-end pt-3">
+                    <a type="button" class="btn btn-light btn-lg" href="{{url_for('billing')}}">Reset all</a>
+                    <input type="submit" name="action" value="Next" class="btn btn-warning btn-lg ms-2"/>
+
+                  </div>
+                  <a class="button button1" id="back" onclick="clear()" href="{{url_for('mainpage')}}">Back To Homepage</a>
+                </div>
+
+               
+
+              </div>
+            </div>
+        
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+</form>
+
+<script type="application/javascript">
+ function checkvalues(e){
+ 
+
+  var n = document.getElementById("cusname").value;
+  var addr = document.getElementById("billingaddress").value;
+  var billno = document.getElementById("billno").value;
+  var mobileno= document.getElementById("mobileno").value;
+  var tax= document.getElementById("tax").value;
+  var billdate= document.getElementById("billdate").value;
+
+
+  if (n != "" && addr!="" && billno!="" && billdate !="" &&  tax!="" && mobileno!="") {
+
+    window.location.replace("/broughtItems");
+  }
+  }
+
+
+  function checkvalues(e){
+ 
+
+  var n = document.getElementById("cusname").value;
+  var addr = document.getElementById("billingaddress").value;
+  var billno = document.getElementById("billno").value;
+  var mobileno= document.getElementById("mobileno").value;
+  var tax= document.getElementById("tax").value;
+  var billdate= document.getElementById("billdate").value;
+
+
+  if (n != "" && addr!="" && billno!="" && billdate !="" &&  tax!="" && mobileno!="") {
+
+    window.location.replace("/broughtItems");
+  }
+  }
+  
+
+</script>
+</body>
+
+</html>
+
